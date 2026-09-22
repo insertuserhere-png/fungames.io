@@ -1,0 +1,27 @@
+ col = int(input(f"Player {player}, enter column: ")) - 1
+...         except ValueError:
+...             print("Please enter numbers only.")
+...             continue
+...
+...         if row not in range(3) or col not in range(3):
+...             print("Choose numbers from 1 to 3.")
+...             continue
+...
+...         if board[row][col] != " ":
+...             print("That spot is already taken.")
+...             continue
+...
+...         board[row][col] = player
+...
+...         if check_winner(board, player):
+...             print_board(board)
+...             print(f"Player {player} wins!")
+...             break
+...
+...         if board_full(board):
+...             print_board(board)
+...             print("It's a draw!")
+...             break
+...
+...         player = "O" if player == "X" else "X"
+...
